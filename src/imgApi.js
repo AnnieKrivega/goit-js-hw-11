@@ -1,36 +1,4 @@
 
-// export default class ImgApi {
-//     constructor( ) {
-// this.searchQuery = '';
-// this.page = 1;
-//     }
-
-    
-//     onFetch(){
-//         console.log(this)
-//         let KEY = '36726851-d95c66efa8eaebbb271de5c8c';
-//         return fetch(`https://pixabay.com/api/?key=${KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=40`).then(res =>{
-//             if(!res.ok){
-//                 throw new Error(res.status)
-//              }      
-//         return res.json()}).then(res => {
-//              console.log(res); this.page +=1; return res}).catch(err => console.log(err));
-//     }
-
-//     resetPage(){
-//         this.page = 1
-//     }
-
-// get query (){
-//     return this.searchQuery;
-// }
-
-// set query(name){
-//     this.searchQuery = name;
-
-// }
-
-// }
 
 import axios from 'axios';
 

@@ -5,13 +5,6 @@ import ImgApi from "./imgApi";
 import Notiflix from 'notiflix';
 const imgApi = new ImgApi()
 
-// function onFetch(name){
-//     return fetch(`https://pixabay.com/api/?key=${KEY}&q=${name}&image_type=photo&orientation=horizontal&safesearch=true`).then(res =>{
-//         if(!res.ok){
-//             throw new Error(res.status)
-//          }      
-//     return res.json()}).then(res => {console.log(res); return res}).catch(err => console.log(err));
-// }
 
 function forEachCard({webformatURL, largeImageURL,tags,likes,views,comments,downloads}){
     
@@ -51,17 +44,17 @@ let onFetchCardList = imgApi.onFetch(name).then(r => { if(r.hits.length === 0){
 Notiflix.Notify.success(`Hooray! We found ${r.totalHits} images.`);
 return r.hits.map( r => forEachCard(r))}
     
-     ).then(r => {return r.join('')}).then(res => {addHtml(res); refs.loadMoreEl.classList.remove('is-hidden')} ).catch(err => console.log(err))
+    ).then(r => {return r.join('')}).then(res => {addHtml(res); refs.loadMoreEl.classList.remove('is-hidden')} ).catch(err => console.log(err))
 
 console.log(onFetchCardList)
 }
 
 function onLoadMore(){
-   console.log(imgApi.onFetch().then(r => { if(r.hits.length === 0){
+console.log(imgApi.onFetch().then(r => { if(r.hits.length === 0){
     Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
     refs.loadMoreEl.classList.add('is-hidden')}; return r.hits.map( r => forEachCard(r))}
     
-     ).then(r => {return r.join('')}).then(addHtml)) 
+    ).then(r => {return r.join('')}).then(addHtml)) 
 }
 
 function addHtml (html){
