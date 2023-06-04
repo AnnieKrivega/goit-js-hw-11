@@ -49,6 +49,17 @@ function forEachCard({webformatURL, largeImageURL,tags,likes,views,comments,down
     
     console.log(onFetchCardList)
     }
+    function onLoadMore(){
+        console.log(imgApi.onFetch().then(r => { if(r.hits.length === 0){
+        Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
+        refs.loadMoreEl.classList.add('is-hidden')}; return r.hits.map( r => forEachCard(r))}
+        
+        ).then(r => {return r.join('')}).then(addHtml)) 
+    }
+    
+    function addHtml (html){
+    refs.cardListEl.insertAdjacentHTML('beforeend', html)
+    }
     function clearHtml (){
         refs.cardListEl.innerHTML = '';
     }
