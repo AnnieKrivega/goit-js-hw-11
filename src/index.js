@@ -56,9 +56,8 @@ console.log(imgApi.onFetch().then(r => { if(r.hits.length === 0){
     
     ).then(r => {return r.join('')}).then(addHtml)) 
 }
-if (imgApi > 40) {
-    btn.style,display = "none";
-}
+if (totalHits < 40){button.style.display = none}
+
 function addHtml (html){
 refs.cardListEl.insertAdjacentHTML('beforeend', html)
 }
