@@ -56,7 +56,7 @@ console.log(imgApi.onFetch().then(r => { if(r.hits.length === 0){
     
     ).then(r => {return r.join('')}).then(addHtml)) 
 }
-
+if ()
 function addHtml (html){
 refs.cardListEl.insertAdjacentHTML('beforeend', html)
 }
