@@ -37,6 +37,7 @@ imgApi.resetPage();
 
 
 
+
 let onFetchCardList = imgApi.onFetch(name).then(r => { if(r.hits.length === 0){
     Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
     throw new Error();
@@ -48,6 +49,7 @@ return r.hits.map( r => forEachCard(r))}
 
 console.log(onFetchCardList)
 }
+if (hits.length < 40) {button.style.display = none}
 
 function onLoadMore(){
 console.log(imgApi.onFetch().then(r => { if(r.hits.length === 0){
@@ -56,7 +58,7 @@ console.log(imgApi.onFetch().then(r => { if(r.hits.length === 0){
     
     ).then(r => {return r.join('')}).then(addHtml)) 
 }
-if (totalHits < 40){button.style.display = none}
+
 
 function addHtml (html){
 refs.cardListEl.insertAdjacentHTML('beforeend', html)
