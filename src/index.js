@@ -49,9 +49,10 @@ return r.hits.map( r => forEachCard(r))}
 
 console.log(onFetchCardList)
 }
-if (hits.length < 40) {button.style.display = none}
+
 
 function onLoadMore(){
+    if (hits.length < 40) {button.style.display = none}
 console.log(imgApi.onFetch().then(r => { if(r.hits.length === 0){
     Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
     refs.loadMoreEl.classList.add('is-hidden')}; return r.hits.map( r => forEachCard(r))}
