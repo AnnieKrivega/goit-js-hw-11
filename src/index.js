@@ -63,29 +63,28 @@ console.log(imgApi.onFetch().then(r => { if(r.hits.length === 0){
     ).then(r => {return r.join('')}).then(addHtml)) 
     if (hits.length < 40) {button.style.display = none}
 }
-// async function loadMore() {
-//     try {
-//     const data = await imgGalleryService.getCategory();
+async function loadMore() {
+    try {
+    const data = await imgGalleryService.getCategory();
 
-//     if (data.hits.length == 0) {
-//         console.log('data.hits.length', data.hits.length);
-//         fetchGalerryBtn.style.display = 'none';
-//         messageEnd.style.display = 'block';
-//         return;
-//     }
-//     renderGallery(data);
-//     imgGalleryService.hits += 40;
+    if (data.hits.length == 0) {
+        console.log('data.hits.length', data.hits.length);
+        fetchGalerryBtn.style.display = 'none';
+        messageEnd.style.display = 'block';
+        return;
+    }
+    imgGalleryService.hits += 40;
 
-//     if (imgGalleryService.hits + 40 > imgGalleryService.totalHits) {
-//         fetchGalerryBtn.style.display = 'none';
-//         messageEnd.style.display = 'block';
-//         return;
-//     }
-//     imgGalleryService.hits += 40;
-//     } catch (error) {
-//     console.log(error);
-//     }
-// }
+    if (imgGalleryService.hits + 40 > imgGalleryService.totalHits) {
+        fetchGalerryBtn.style.display = 'none';
+        messageEnd.style.display = 'block';
+        return;
+    }
+    imgGalleryService.hits += 40;
+    } catch (error) {
+    console.log(error);
+    }
+}
 
 function addHtml (html){
 refs.cardListEl.insertAdjacentHTML('beforeend', html)

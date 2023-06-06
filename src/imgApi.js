@@ -2,10 +2,13 @@
 
 import axios from 'axios';
 
-export default class ImgApi {
+export default class GalleryService {
   constructor() {
-    this.searchQuery = '';
+    this.name = '';
     this.page = 1;
+    this.hits = 0;
+    this.totalHits = 0;
+    this.perPage = 40;
   }
 
   async onFetch() {
