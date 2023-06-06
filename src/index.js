@@ -49,7 +49,10 @@ return r.hits.map( r => forEachCard(r))}
 
 console.log(onFetchCardList)
 }
-
+{math.ceil(total.hits / per_page)
+page+=1 
+if (page < totalPage){
+}}
 
 function onLoadMore(){
 
