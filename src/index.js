@@ -86,6 +86,20 @@ async function loadMore() {
     }
 }
 
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    // Функція, яка прокручує на початок сторінки
+
+    function scrollToTop() {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    scrollToTopBtn.addEventListener("click", scrollToTop);
+
 function addHtml (html){
 refs.cardListEl.insertAdjacentHTML('beforeend', html)
 }
